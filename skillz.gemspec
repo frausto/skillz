@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/skillz/match.rb",
     "lib/skillz/player.rb",
     "lib/skillz/team.rb",
+    "skillz.gemspec",
     "spec/skillz/match_spec.rb",
     "spec/skillz/player_spec.rb",
     "spec/skillz/team_spec.rb",
