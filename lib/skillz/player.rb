@@ -13,5 +13,9 @@ module Skillz
         @uncertainty_in_skill_level += time_decay
       end
     end
+
+    def adjusted_skill_level
+      @skill_level - @uncertainty_in_skill_level
+    end
   end
 end
