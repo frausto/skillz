@@ -15,7 +15,7 @@ module Skillz
     end
 
     def adjusted_skill_level
-      @skill_level - @uncertainty_in_skill_level
+      @skill_level - (@uncertainty_in_skill_level/2)
     end
   end
 end
