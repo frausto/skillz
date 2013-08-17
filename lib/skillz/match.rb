@@ -28,9 +28,9 @@ module Skillz
         end
 
         team1.players.map do |player|
-          uncertainty_squared = player.uncertainty_in_skill_level**2
+          uncertainty_squared = player.skill_uncertainty**2
           player.skill_level += uncertainty_squared/team1.uncertainty * omega
-          player.uncertainty_in_skill_level *= Math.sqrt([1 - uncertainty_squared / team1.uncertainty * delta, 0.0001].max)
+          player.skill_uncertainty *= Math.sqrt([1 - uncertainty_squared / team1.uncertainty * delta, 0.0001].max)
           player
         end
       end

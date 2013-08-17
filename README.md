@@ -38,7 +38,7 @@ Or install it yourself as:
     team2 = Skillz::Team.new([p3, p4], 2)
 
     Skillz::Match.score(Skillz::Team.new([p1, p2], 1), Skillz::Team.new([p2], 2))
-    # players are now update with their new skill_level and uncertainty_in_skill_level
+    # players are now update with their new skill_level and skill_uncertainty
 
 ## Contributing
 

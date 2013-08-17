@@ -15,7 +15,7 @@ module Skillz
     def uncertainty
       @uncertainty_squared ||= begin
         @players.map do |player|
-          player.uncertainty_in_skill_level * player.uncertainty_in_skill_level
+          player.skill_uncertainty * player.skill_uncertainty
         end.sum
       end
     end
