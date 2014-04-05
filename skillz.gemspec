@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "skillz"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["frausto"]
-  s.date = "2013-08-16"
+  s.date = "2014-04-05"
   s.description = "A ruby library implementing a competitive ranking system based on trueskill and other similar systems. Built to address issues such as cheating, tournaments, team-play, matching, etc.. "
   s.email = "nrfrausto@gmail.com"
   s.extra_rdoc_files = [
