@@ -147,5 +147,33 @@ describe Skillz::Match do
       p1.skill_uncertainty.round(7).should == 2.9968199
       p2.skill_uncertainty.round(7).should == 9.5156031
     end
+
+
+    it "works for team matches" do
+      p1 = Skillz::Player.new(30, 3)
+      p2 = Skillz::Player.new(20, 9.9)
+      p3 = Skillz::Player.new(25, 7.9)
+      p4 = Skillz::Player.new(32, 4.9)
+
+      p1.skill_uncertainty.should == 3
+      p2.skill_uncertainty.should == 9.9
+      p3.skill_uncertainty.should == 7.9
+      p4.skill_uncertainty.should == 4.9
+      p1.skill_level.should == 30
+      p2.skill_level.should == 20
+      p3.skill_level.should == 25
+      p4.skill_level.should == 32
+
+      Skillz::Match.score(Skillz::Team.new([p1, p3], 1), Skillz::Team.new([p4, p2], 2))
+
+      p1.skill_level.round(7).should == 30.2684317
+      p2.skill_level.round(7).should == 17.0767787
+      p3.skill_level.round(7).should == 26.8614248
+      p4.skill_level.round(7).should == 31.2838839
+      p1.skill_uncertainty.round(7).should == 2.9917939
+      p2.skill_uncertainty.round(7).should == 9.5072471
+      p3.skill_uncertainty.round(7).should == 7.7489117
+      p4.skill_uncertainty.round(7).should == 4.8530988
+    end
   end
 end

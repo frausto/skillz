@@ -7,7 +7,7 @@ describe Skillz::Player do
   end
 
   it "should increase uncertainty based on when the last match was played" do
-    Skillz::Player.new(25, 5, @now - 60.days).skill_uncertainty.round(7).should == 5.7579173
+    Skillz::Player.new(25, 5, @now - 60.days).skill_uncertainty.round(7).should == 5.7462792
   end
 
   it "does not adjust if inactive for less than 25 days" do
@@ -18,7 +18,7 @@ describe Skillz::Player do
    it "time decay assumes 4 for sigma lower than 4" do
     smaller = Skillz::Player.new(25, 2, @now - 60.days).skill_uncertainty.round(7) - 2
     larger = Skillz::Player.new(25, 4, @now - 60.days).skill_uncertainty.round(7) - 4
-    smaller.should == larger
+    smaller.round(7).should == larger.round(7)
   end
 
   it "time decay assumes 10 for sigma larger than 10" do
@@ -30,4 +30,8 @@ describe Skillz::Player do
     smaller.should == larger
   end
 
+  it "sets a temporary_id" do
+    one = Skillz::Player.new(25, 11).temporary_id.should be_present
+    two = Skillz::Player.new(25, 10, nil, 5).temporary_id.should == 5
+  end
 end
