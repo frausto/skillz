@@ -1,14 +1,12 @@
-require 'securerandom'
-
 module Skillz
   class Player
 
-    attr_accessor :skill_level, :skill_uncertainty, :temporary_id
+    attr_accessor :skill_level, :skill_uncertainty, :data
 
-    def initialize(skill_level=nil, uncertainty=nil, last_match_time=nil, temporary_id=nil)
+    def initialize(skill_level=nil, uncertainty=nil, last_match_time=nil, data={})
       @skill_level = skill_level || Skillz::INITIAL_SKILL_LEVEL
       @skill_uncertainty = uncertainty || Skillz::UNCERTAINTY
-      @temporary_id = temporary_id || SecureRandom.uuid
+      @data = data || {}
       adjust_for_inactivity(last_match_time) if last_match_time
     end
 
